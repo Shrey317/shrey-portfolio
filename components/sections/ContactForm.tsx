@@ -34,7 +34,7 @@ export default function ContactForm() {
     const mailto = `mailto:${siteConfig.links.email}?subject=${encodeURIComponent(
       form.subject || "Portfolio contact"
     )}&body=${encodeURIComponent(
-      `Hi Atri,\n\n${form.message}\n\n— ${form.name} (${form.email})`
+      `Hi Shrey,\n\n${form.message}\n\n— ${form.name} (${form.email})`
     )}`;
     window.location.href = mailto;
     setSubmitted(true);
@@ -92,7 +92,7 @@ export default function ContactForm() {
                 <div className="w-9 h-9 rounded-lg bg-violet-500/10 border border-violet-500/20 flex items-center justify-center shrink-0">
                   <MapPin size={16} className="text-violet-400" />
                 </div>
-                Valsad, Gujarat, India
+                Johannesburg, Gauteng, South Africa
               </li>
             </ul>
           </div>
@@ -183,7 +183,7 @@ export default function ContactForm() {
                       required
                       value={form.name}
                       onChange={handleChange}
-                      placeholder="Rahul Sharma"
+                      placeholder="Your name"
                       className={inputClass}
                     />
                   </div>
@@ -201,7 +201,7 @@ export default function ContactForm() {
                       required
                       value={form.email}
                       onChange={handleChange}
-                      placeholder="rahul@example.com"
+                      placeholder="you@example.com"
                       className={inputClass}
                     />
                   </div>
@@ -257,6 +257,7 @@ export default function ContactForm() {
                 </button>
 
                 <p className="text-xs text-[#555] text-center">
+                  I'll get back to you within 1–2 business days.
                   This opens your email client. No data is stored on this site.
                 </p>
               </form>

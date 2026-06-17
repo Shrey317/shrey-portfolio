@@ -70,7 +70,7 @@ export default function Navbar() {
             className="text-violet-400 font-bold text-xl font-mono tracking-tight hover:text-violet-300 transition-colors focus-visible:outline-violet-400"
             aria-label={`${siteConfig.name} — home`}
           >
-            AP
+            SP
           </Link>
 
           {/* ── Desktop links ─────────────────────────────────────────────── */}
@@ -142,7 +142,7 @@ export default function Navbar() {
       >
         {/* Panel header */}
         <div className="flex items-center justify-between h-16 px-6 border-b border-white/8">
-          <span className="text-violet-400 font-bold font-mono text-xl">AP</span>
+          <span className="text-violet-400 font-bold font-mono text-xl">SP</span>
           <button
             onClick={() => setMobileOpen(false)}
             aria-label="Close menu"

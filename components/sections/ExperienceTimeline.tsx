@@ -16,7 +16,7 @@ export default function ExperienceTimeline() {
         <SectionHeader
           label="Work"
           accent="Experience"
-          description="Where I've applied my skills in real-world product environments."
+          // description="Where I've applied my skills in real-world product environments."
         />
       </AnimatedSection>
 

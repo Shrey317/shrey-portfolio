@@ -14,7 +14,7 @@ export default function ResumePage() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 mb-8">
         <div>
           <h1 className="text-3xl font-bold text-[#f5f5f5]">
-            Atri&apos;s{" "}
+            Shrey&apos;s{" "}
             <span className="text-violet-400 font-mono">&#123; Resume &#125;</span>
           </h1>
           <p className="mt-1 text-sm text-[#888]">Last updated: May 2026</p>
@@ -24,7 +24,7 @@ export default function ResumePage() {
           {/* FIX: download attribute should be the desired filename, not the path */}
           <a
             href="/resume.pdf"
-            download="Atri_Patel_Resume.pdf"
+            download="Shrey_Patel_Resume.pdf"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg
               bg-violet-600 hover:bg-violet-700 text-white font-medium text-sm
               transition-colors focus-visible:outline-violet-400"
@@ -53,17 +53,17 @@ export default function ResumePage() {
           <span className="text-xs text-[#555] font-mono">resume.pdf</span>
           <span className="text-xs text-[#555]">
             Preview not loading?{" "}
-            <a href="/resume.pdf" download="Atri_Patel_Resume.pdf" className="text-violet-400 hover:underline">
+            <a href="/resume.pdf" download="Shrey_Patel_Resume.pdf" className="text-violet-400 hover:underline">
               Download directly
             </a>
           </span>
         </div>
         <iframe
           src="/resume.pdf"
-          title="Atri Patel Resume PDF"
+          title="Shrey Patel Resume PDF"
           className="w-full"
           style={{ height: "85vh", minHeight: "600px" }}
-          aria-label="Atri Patel resume document"
+          aria-label="Shrey Patel resume document"
         />
       </div>
     </main>

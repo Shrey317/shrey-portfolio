@@ -1,4 +1,4 @@
-// ─── Core data types for Atri Patel's portfolio ─────────────────────────────
+// ─── Core data types for Shrey Patel's portfolio ─────────────────────────────
 
 export interface Project {
   id: string;

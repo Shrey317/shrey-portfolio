@@ -16,11 +16,11 @@ export default function Footer() {
               href="/"
               className="text-violet-400 font-bold text-xl font-mono tracking-tight hover:text-violet-300 transition-colors"
             >
-              AP
+              SP
             </Link>
             <p className="mt-3 text-sm text-[#888] leading-relaxed max-w-xs">
-              Full-Stack Web Developer specialising in MERN stack applications.
-              Based in Valsad, Gujarat.
+              Full-Stack Web Developer.
+              Based in Johannesburg, Gauteng.
             </p>
           </div>
 
@@ -106,11 +106,6 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-[#555]">
             © {year} {siteConfig.name}. All rights reserved.
-          </p>
-          <p className="text-xs text-[#555]">
-            Built with{" "}
-            <span className="text-violet-400">Next.js 15</span> &{" "}
-            <span className="text-violet-400">Tailwind CSS</span>
           </p>
         </div>
       </div>

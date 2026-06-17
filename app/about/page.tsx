@@ -4,7 +4,7 @@ import AboutContent from "@/components/sections/AboutContent";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `Learn more about ${siteConfig.name} — Computer Engineer and Full-Stack MERN Web Developer based in Valsad, Gujarat.`,
+  description: `Learn more about ${siteConfig.name} — Software Engineer and Full-Stack Web Developer based in Johannesburg, Gauteng.`,
 };
 
 export default function AboutPage() {

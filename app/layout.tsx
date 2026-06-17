@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+declare module "*.css";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
@@ -15,16 +16,15 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    "Atri Patel",
+    "Shrey Patel",
     "Full-Stack Developer",
-    "MERN Stack",
     "React Developer",
     "Node.js",
     "Web Developer",
     "Portfolio",
     "Computer Engineer",
-    "Gujarat",
-    "India",
+    "Johannesburg",
+    "South Africa",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,

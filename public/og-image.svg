@@ -6,8 +6,8 @@
     </radialGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <text x="600" y="260" font-family="monospace" font-size="28" fill="#8b5cf6" text-anchor="middle" opacity="0.8">~ npx atri-patel ~</text>
-  <text x="600" y="340" font-family="sans-serif" font-size="72" font-weight="800" fill="#f5f5f5" text-anchor="middle">Atri Patel</text>
+  <text x="600" y="260" font-family="monospace" font-size="28" fill="#8b5cf6" text-anchor="middle" opacity="0.8">~ npx shrey-patel ~</text>
+  <text x="600" y="340" font-family="sans-serif" font-size="72" font-weight="800" fill="#f5f5f5" text-anchor="middle">Shrey Patel</text>
   <text x="600" y="400" font-family="sans-serif" font-size="28" fill="#8b5cf6" text-anchor="middle">Full-Stack Web Developer</text>
-  <text x="600" y="460" font-family="sans-serif" font-size="18" fill="#888888" text-anchor="middle">MERN Stack · React.js · Node.js · MongoDB</text>
+  <text x="600" y="460" font-family="sans-serif" font-size="18" fill="#888888" text-anchor="middle">Full-Stack · React.js · Node.js · MongoDB</text>
 </svg>

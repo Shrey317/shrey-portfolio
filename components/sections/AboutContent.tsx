@@ -27,8 +27,8 @@ export default function AboutContent() {
       {/* Optimized Next.js Image */}
       <div className="relative w-40 h-40 rounded-2xl overflow-hidden">
         <Image
-          src="/portfolio image.png" // Replace with your exact filename
-          alt="Atri Patel"
+          src="/portfolio-img.jpeg" // Replace with your exact filename
+          alt="Shrey Patel"
           fill
           className="object-cover"
           priority // Optional: Loads the image quickly since it's above the fold
@@ -37,7 +37,7 @@ export default function AboutContent() {
 
           <a
             href="/resume.pdf"
-            download="Atri_Patel_Resume.pdf"
+            download="Shrey_Patel_Resume.pdf"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg
               border border-violet-500 text-violet-400 font-medium text-sm
               hover:bg-violet-500/10 transition-colors"
@@ -53,21 +53,17 @@ export default function AboutContent() {
             Hi, I&apos;m {siteConfig.name} 👋
           </h2>
           <p className="text-[#888] leading-relaxed">
-            I&apos;m a Computer Engineering student at GIDC Degree Engineering College
-            (graduating May 2026) with a strong passion for building full-stack web
-            applications. My core stack is the MERN ecosystem — React.js on the
-            frontend, Node.js and Express.js on the backend, and MongoDB as my primary database.
+            I&apos;m a Software Engineering student completing a BSc (Hons) in Information Technology, 
+            with a strong focus on web development and JavaScript. My core stack includes HTML, CSS, JavaScript, 
+            React, Node.js, Express.js, and REST APIs, and I enjoy building responsive, user-friendly web applications 
+            from start to finish.
           </p>
           <p className="text-[#888] leading-relaxed">
-            I care deeply about writing clean, maintainable code and crafting user
-            interfaces that feel intuitive and polished. From securing REST APIs with
-            JWT authentication to designing responsive layouts with Tailwind CSS, I
-            enjoy owning the full lifecycle of a feature.
-          </p>
-          <p className="text-[#888] leading-relaxed">
-            Beyond web development, I&apos;m fascinated by applied AI and machine learning —
-            evidenced by my Crop Cultivation Chatbot project and multiple certifications
-            in ML, NLP, and data analysis through NPTEL and SAP&apos;s Code Unnati programme.
+            I care about writing clean, maintainable code and creating interfaces 
+            that feel simple, polished, and intuitive. I&apos;m especially interested in 
+            full-stack development, where I can work across both frontend and backend to 
+            turn ideas into practical, scalable solutions. I&apos;m currently looking for junior 
+            web development opportunities where I can contribute, learn, and grow.
           </p>
           <p className="text-[#888] leading-relaxed">
             Outside of coding I enjoy exploring new frameworks, contributing to discussions

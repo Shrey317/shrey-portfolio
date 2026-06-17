@@ -16,7 +16,7 @@ export default function EducationSection() {
           <SectionHeader
             label="My"
             accent="Education"
-            description="Academic foundations behind the code."
+            // description="Academic foundations behind the code."
           />
         </AnimatedSection>
 
