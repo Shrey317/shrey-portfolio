@@ -1,71 +1,78 @@
-import type { Metadata } from "next";
-import { Download, ExternalLink } from "lucide-react";
-import { siteConfig } from "@/lib/data";
-
-export const metadata: Metadata = {
-  title: "Resume",
-  description: `View and download the resume of ${siteConfig.name} — Full-Stack Web Developer.`,
-};
-
+import { ExternalLink, Mail } from "lucide-react";
+import { resume, siteConfig } from "@/lib/data";
+import { pageMetadata } from "@/lib/metadata";
+import ResumeLink from "@/components/shared/ResumeLink";
+export const metadata = pageMetadata(
+  "Resume",
+  "Shrey Patel’s developer CV: experience, education and technical skills. Get in touch to request a copy.",
+  "/resume",
+);
 export default function ResumePage() {
   return (
-    <main className="min-h-screen pt-24 max-w-5xl mx-auto px-6 pb-20">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 mb-8">
-        <div>
-          <h1 className="text-3xl font-bold text-[#f5f5f5]">
-            Shrey&apos;s{" "}
-            <span className="text-violet-400 font-mono">&#123; Resume &#125;</span>
-          </h1>
-          <p className="mt-1 text-sm text-[#888]">Last updated: May 2026</p>
-        </div>
-
-        <div className="flex items-center gap-3">
-          {/* FIX: download attribute should be the desired filename, not the path */}
-          <a
-            href="/resume.pdf"
-            download="Shrey_Patel_Resume.pdf"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg
-              bg-violet-600 hover:bg-violet-700 text-white font-medium text-sm
-              transition-colors focus-visible:outline-violet-400"
-          >
-            <Download size={16} />
-            Download PDF
-          </a>
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg
-              border border-white/10 hover:border-violet-500/40
-              text-[#888] hover:text-violet-400 font-medium text-sm
-              transition-colors"
-          >
-            <ExternalLink size={16} />
-            Open tab
-          </a>
-        </div>
+    <main id="main-content" tabIndex={-1} className="page-main container">
+      <div className="page-heading">
+        <p className="eyebrow">EXPERIENCE / RESUME</p>
+        <h1>
+          The story so far<span className="accent">.</span>
+        </h1>
+        <p>
+          A closer look at my experience, education and the tools I work with.
+        </p>
+        {resume.updated && <p className="mono">CV updated {resume.updated}</p>}
       </div>
-
-      {/* PDF embed */}
-      <div className="rounded-xl border border-white/8 overflow-hidden bg-[#111]">
-        <div className="p-4 border-b border-white/8 flex items-center justify-between">
-          <span className="text-xs text-[#555] font-mono">resume.pdf</span>
-          <span className="text-xs text-[#555]">
-            Preview not loading?{" "}
-            <a href="/resume.pdf" download="Shrey_Patel_Resume.pdf" className="text-violet-400 hover:underline">
-              Download directly
+      {resume.available ? (
+        <>
+          <div className="resume-toolbar">
+            <ResumeLink className="button button-primary" />
+            <a
+              className="button button-secondary"
+              href={resume.path}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open PDF in new tab
+              <ExternalLink size={16} aria-hidden="true" />
             </a>
-          </span>
+          </div>
+          <div className="resume-preview">
+            <p>
+              Preview not loading?{" "}
+              <a href={resume.path} download={resume.filename}>
+                Download the CV directly.
+              </a>
+            </p>
+            <object
+              data={resume.path}
+              type="application/pdf"
+              title="Shrey Patel’s CV"
+            >
+              <p>
+                Your browser does not support PDF previews.{" "}
+                <a href={resume.path} download={resume.filename}>
+                  Download the CV
+                </a>
+                .
+              </p>
+            </object>
+          </div>
+        </>
+      ) : (
+        <div className="resume-fallback">
+          <h2>Let me send you my CV.</h2>
+          <p>
+            A verified PDF isn&apos;t available to download here yet. Email me
+            to request the latest copy. You can also explore my experience and
+            education on this website.
+          </p>
+          <a
+            className="button button-primary"
+            href={`mailto:${siteConfig.links.email}?subject=${encodeURIComponent("Request for Shrey Patel’s CV")}`}
+          >
+            <Mail size={17} aria-hidden="true" />
+            Request CV by email
+          </a>
         </div>
-        <iframe
-          src="/resume.pdf"
-          title="Shrey Patel Resume PDF"
-          className="w-full"
-          style={{ height: "85vh", minHeight: "600px" }}
-          aria-label="Shrey Patel resume document"
-        />
-      </div>
+      )}
     </main>
   );
 }

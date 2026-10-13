@@ -1,13 +1,12 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <radialGradient id="bg" cx="50%" cy="0%" r="70%">
-      <stop offset="0%" stop-color="#3b1f7a"/>
-      <stop offset="100%" stop-color="#080808"/>
-    </radialGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <text x="600" y="260" font-family="monospace" font-size="28" fill="#8b5cf6" text-anchor="middle" opacity="0.8">~ npx shrey-patel ~</text>
-  <text x="600" y="340" font-family="sans-serif" font-size="72" font-weight="800" fill="#f5f5f5" text-anchor="middle">Shrey Patel</text>
-  <text x="600" y="400" font-family="sans-serif" font-size="28" fill="#8b5cf6" text-anchor="middle">Full-Stack Web Developer</text>
-  <text x="600" y="460" font-family="sans-serif" font-size="18" fill="#888888" text-anchor="middle">Full-Stack · React.js · Node.js · MongoDB</text>
+<rect width="1200" height="630" fill="#090a0e"/>
+<path d="M70 95H1130M70 540H1130" stroke="#30313a"/>
+<text x="72" y="68" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#f4f4f6">shrey<tspan fill="#b1a2ff">.</tspan></text>
+<circle cx="82" cy="156" r="5" fill="#8cdbc1"/>
+<text x="100" y="163" font-family="Arial,sans-serif" font-size="17" fill="#bec9c5">OPEN TO OPPORTUNITIES</text>
+<text x="68" y="300" font-family="Arial,sans-serif" font-size="110" font-weight="bold" letter-spacing="-6" fill="#f4f4f6">Shrey Patel<tspan fill="#b1a2ff">.</tspan></text>
+<text x="73" y="375" font-family="Arial,sans-serif" font-size="33" fill="#b1a2ff">Software Developer</text>
+<text x="73" y="427" font-family="Arial,sans-serif" font-size="25" fill="#a2a4b0">Thoughtful interfaces. Practical business systems.</text>
+<text x="73" y="580" font-family="Arial,sans-serif" font-size="17" fill="#a2a4b0">JOHANNESBURG, SOUTH AFRICA</text>
+<g transform="translate(870 215) rotate(-9)"><rect width="220" height="70" rx="8" fill="#232031" stroke="#63547c"/><rect x="12" y="90" width="220" height="70" rx="8" fill="#1c1b27" stroke="#63547c"/><rect x="24" y="180" width="220" height="70" rx="8" fill="#161720" stroke="#63547c"/><path d="M115 70v20m12 70v20" stroke="#b1a2ff"/><text x="22" y="45" font-family="monospace" font-size="21" fill="#b1a2ff">01 / INTERFACE</text><text x="34" y="135" font-family="monospace" font-size="21" fill="#b1a2ff">02 / LOGIC</text><text x="46" y="225" font-family="monospace" font-size="21" fill="#b1a2ff">03 / DATA</text></g>
 </svg>

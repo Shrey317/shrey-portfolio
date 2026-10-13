@@ -34,3 +34,6 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+# Private source documents and local QA output
+private/
+artifacts/

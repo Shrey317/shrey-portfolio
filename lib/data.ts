@@ -4,141 +4,154 @@ import type {
   Experience,
   Education,
   Certification,
-  SiteConfig,
   NavLink,
 } from "./types";
 
-// ─── Site-wide config ────────────────────────────────────────────────────────
-// ⚠️  UPDATE THESE before deploying:
-//   - url: your actual Vercel URL after first deploy
-//   - links.github: your real GitHub profile URL
-//   - links.linkedin: your real LinkedIn profile URL
-export const siteConfig: SiteConfig = {
+// Source: existing portfolio content and the owner's implementation brief.
+// See CONTENT-NOTES.md for verification gaps. Never add inferred client work here.
+export const siteConfig = {
   name: "Shrey Patel",
-  title: "Shrey Patel — Full-Stack Web Developer",
+  title: "Shrey Patel | Software Developer Portfolio",
   description:
-    "Full-Stack Web Developer with expertise in Full-Stack and modern web technologies. Building scalable, user-centric applications from Johannesburg, Gauteng.",
-  url: "https://shrey-patel.vercel.app", // ← update after first Vercel deploy
+    "Software developer in Johannesburg building responsive web applications and practical business systems. Explore Shrey Patel’s projects, skills and experience.",
+  url: "https://shrey-portfolio-black.vercel.app",
   ogImage: "/og-image.png",
+  location: "Johannesburg, South Africa",
   links: {
-    github: "https://github.com/Shrey317",     // ← update with your real GitHub URL
-    linkedin: "https://www.linkedin.com/in/shrey-patel-36a5b8343/", // ← update with your real LinkedIn URL
-    twitter: "",
+    github: "https://github.com/Shrey317",
+    linkedin: "https://www.linkedin.com/in/shrey-patel-36a5b8343/",
     email: "drash1731@gmail.com",
-    phone: "+27 64 325 9288",
   },
 };
-
-// ─── Hero ─────────────────────────────────────────────────────────────────────
-export const hero = {
-  terminalText: "~ npx shrey-patel ~",
-  headline: "Shrey Patel",
-  subtitle: "Full-Stack Web Developer",
-  tagline:
-    "I’m a software engineering student completing a BSc (Hons) in Information Technology, with experience building responsive web applications. I work with HTML, CSS, Python, JavaScript, React, and REST APIs, and I’m looking for a junior engineering or graduate developer role  I can contribute and grow.",
-  availabilityText: "Open to full-time roles",
+// Enable only after replacing the unrelated supplied PDF with Shrey's verified CV.
+export const resume: {
+  available: boolean;
+  path: string;
+  filename: string;
+  updated: string | null;
+} = {
+  available: false,
+  path: "/resume.pdf",
+  filename: "Shrey_Patel_CV.pdf",
+  updated: null,
 };
-
-// ─── Navigation ───────────────────────────────────────────────────────────────
+export const hero = {
+  headline: "Shrey Patel",
+  subtitle: "Software Developer | Full-Stack Web Development",
+  tagline:
+    "I build reliable, responsive web applications — from intuitive interfaces to practical business systems. Thoughtful software, built around real-world problems.",
+  availabilityText: "Open to junior, graduate & internship roles",
+};
 export const navLinks: NavLink[] = [
   { href: "/#projects", label: "Projects" },
   { href: "/#skills", label: "Skills" },
   { href: "/#experience", label: "Experience" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
-  { href: "/resume", label: "Resume" },
 ];
 
-// ─── Projects ────────────────────────────────────────────────────────────────
-// To add a new project, copy one of the objects below and fill in the fields.
-// Set featured: true to show it on the home page (max 4 shown).
-// Add liveUrl and repoUrl when you deploy/push to GitHub.
+// Existing project summaries; provenance, delivery dates and deployment status
+// are undocumented. Do not imply public availability or client production use.
 export const projects: Project[] = [
-    {
+  {
     id: "e-com-web",
     name: "E-Commerce Web Application",
+    category: "Full-Stack",
+    type: "Web application",
     description:
-      "A responsive e-commerce platform with user login and shopping cart functionality. Frontend interfaces are integrated with a MySQL database for dynamic, accurate data management.",
+      "Connecting a responsive shopping experience with database-backed product and user information.",
+    contribution:
+      "Built responsive interfaces and connected frontend functionality to a MySQL database.",
+    features: ["User login", "Shopping cart", "Dynamic data management"],
     tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
     featured: true,
-    // repoUrl: "https://github.com/Shrey317/gym-management",
+    visual: "commerce",
   },
   {
     id: "mobile-app",
-    name: "Mobile Application & Web Services Integration",
+    name: "Mobile & Web Services",
+    category: "Backend",
+    type: "API integration",
     description:
-      "A mobile application integrated with backend web services for real-time data exchange. Includes secure user authentication, data validation, and thoroughly tested REST API endpoints.",
+      "Linking a mobile application with backend services for real-time data exchange.",
+    contribution:
+      "Integrated web services, implemented authentication and validation, and tested REST API endpoints.",
+    features: [
+      "User authentication",
+      "Data validation",
+      "REST API integration",
+    ],
     tech: ["Python", "REST APIs", "Mobile Development"],
     featured: true,
-    // liveUrl: "https://your-deployed-url.vercel.app",
-    // repoUrl: "https://github.com/Shrey317/oujat-mern",
+    visual: "api",
   },
   {
     id: "database-sys-design",
-    name: "Database Systems Design & Optimisation",
+    name: "Database Design & Optimisation",
+    category: "Backend",
+    type: "Database engineering",
     description:
-      "A fully normalised relational database modelled on a real-world business scenario. Covers ER diagram design, query indexing, and performance tuning for efficient data retrieval.",
+      "Modelling a business scenario as a structured relational database, with efficient data retrieval in mind.",
+    contribution:
+      "Designed a normalised relational model, ER diagrams, query indexes and performance improvements.",
+    features: ["Relational modelling", "Query indexing", "Performance tuning"],
     tech: ["Python", "SQL", "OOP"],
     featured: true,
-    // repoUrl: "https://github.com/Shrey317/food-order",
+    visual: "database",
   },
 ];
-
-export const featuredProjects = projects.slice(0, 4);
-
-// ─── Skills ──────────────────────────────────────────────────────────────────
-// To add a new skill, add an object to the correct category's skills array.
-// icon: use the react-icons/si key (e.g. "SiReact") or "none" for a text fallback.
-// color: the brand hex color shown on the icon.
+export const featuredProjects = projects.filter((project) => project.featured);
 export const skills: SkillCategory[] = [
   {
     label: "Frontend",
+    description: "Interfaces that make sense, on every screen.",
     skills: [
-      { name: "HTML", icon: "SiHtml5", color: "#E34F26" },
-      { name: "CSS", icon: "SiCss", color: "#1572B6" },
-      { name: "JavaScript", icon: "SiJavascript", color: "#F7DF1E" },
-      { name: "React.js", icon: "SiReact", color: "#61DAFB" },
-      { name: "Tailwind CSS", icon: "SiTailwindcss", color: "#06B6D4" },
+      { name: "HTML", icon: "html" },
+      { name: "CSS", icon: "css" },
+      { name: "JavaScript", icon: "js" },
+      { name: "React", icon: "react" },
+      { name: "Tailwind CSS", icon: "tailwind" },
     ],
   },
   {
-    label: "Backend",
+    label: "Backend & APIs",
+    description: "The logic and services behind the interface.",
     skills: [
-      { name: "Node.js", icon: "SiNodedotjs", color: "#339933" },
-      { name: "Express.js", icon: "SiExpress", color: "#cccccc" },
-      { name: "PHP", icon: "SiPhp", color: "#777BB4" },
-      { name: "SQL / MySQL", icon: "SiMysql", color: "#4479A1" },
-      { name: "MongoDB", icon: "SiMongodb", color: "#47A248" },
-    ],
-  },
-      {
-    label: "Languages",
-    skills: [
-      { name: "Python", icon: "SiPython", color: "#3776AB" },
-      { name: "REST APIs", icon: "api", color: "#35b3f2" },
+      { name: "Node.js", icon: "node" },
+      { name: "Express.js", icon: "express" },
+      { name: "PHP", icon: "php" },
+      { name: "REST APIs", icon: "api" },
     ],
   },
   {
-    label: "Tools",
+    label: "Databases & data",
+    description: "Structured information. Reliable foundations.",
     skills: [
-      { name: "Git", icon: "SiGit", color: "#F05032" },
-      { name: "VS Code", icon: "SiVscode", color: "#007ACC" },
-      { name: "Postman", icon: "SiPostman", color: "#FF6C37" },
-      { name: "XAMPP", icon: "SiXampp", color: "#FB7A24" },
-      { name: "Excel", icon: "excel", color: "#FB7A24" },
+      { name: "SQL / MySQL", icon: "mysql" },
+      { name: "MongoDB", icon: "mongo" },
+      { name: "Excel", icon: "excel" },
     ],
   },
-    {
-    label: "Security",
+  {
+    label: "Tools & workflow",
+    description: "A practical toolkit for building and debugging.",
     skills: [
-      { name: "Network Security", icon: "security", color: "#35b3f2" },
-      { name: "Encryption", icon: "encryption", color: "#35b3f2" },
+      { name: "Git", icon: "git" },
+      { name: "VS Code", icon: "code" },
+      { name: "Postman", icon: "postman" },
+      { name: "XAMPP", icon: "xampp" },
+    ],
+  },
+  {
+    label: "Additional knowledge",
+    description: "Programming and security fundamentals.",
+    skills: [
+      { name: "Python", icon: "python" },
+      { name: "Network security", icon: "security" },
+      { name: "Encryption", icon: "lock" },
     ],
   },
 ];
-
-// ─── Work Experience ─────────────────────────────────────────────────────────
-// To add a new job, add a new object at the TOP of this array (most recent first).
 export const experience: Experience[] = [
   {
     company: "Krisha Gems",
@@ -146,10 +159,12 @@ export const experience: Experience[] = [
     startDate: "Apr 2026",
     endDate: "Present",
     location: "Rosebank, Gauteng",
-    description:
-      "Perform data entry and maintain accurate business records. Designed and developed an Excel-based fleet management system (Nita Travels). Designed and developed an Excel-based student accommodation system (Limuor House). Support structured data updates and ongoing administrative tasks.",
+    responsibilities: [
+      "Developed an Excel-based fleet management system for Nita Travels.",
+      "Developed an Excel-based student accommodation system for Limuor House.",
+      "Maintain accurate business records and support structured data updates and administrative workflows.",
+    ],
     tech: ["Excel", "Microsoft Office", "Data Management"],
-    // companyUrl: "https://techreale.com",
   },
   {
     company: "BWS",
@@ -157,41 +172,30 @@ export const experience: Experience[] = [
     startDate: "Dec 2025",
     endDate: "Jan 2026",
     location: "Remote",
-    description:
-      "Completed an intensive internship in full stack web development. Built and deployed web applications across frontend and backend stacks. Collaborated on real-world project requirements and delivered working features.",
-    tech: ["HTML", "CSS", "JavaScript","Node.js", "PHP", "MySQL"],
+    responsibilities: [
+      "Built and deployed web applications across frontend and backend stacks.",
+      "Collaborated on project requirements and delivered working features during a full-stack development internship.",
+    ],
+    tech: ["HTML", "CSS", "JavaScript", "Node.js", "PHP", "MySQL"],
   },
 ];
-
-// ─── Education ───────────────────────────────────────────────────────────────
 export const education: Education[] = [
   {
     institution: "Eduvos",
-    degree: "Bachelor of Science Honours in Information Technology (Software Engineering)",
-    startDate: "Jan 2022",
-    endDate: "Nov 2025",
+    degree: "BSc Honours in Information Technology (Software Engineering)",
+    dateLabel: "Completed November 2025",
   },
   {
-    institution: "Parktown Boys' High School",
-    degree: "National Seniour Certificate(NSC)",
-    startDate: "Jan 2018",
-    endDate: "Nov 2020",
+    institution: "Eduvos",
+    degree: "Bachelor’s degree",
+    dateLabel: "Completed 2025",
+  },
+  {
+    institution: "Parktown Boys’ High School",
+    degree: "National Senior Certificate (NSC)",
+    dateLabel: "January 2018 – November 2020",
   },
 ];
-
-// ─── Certifications ──────────────────────────────────────────────────────────
-// To add a new certificate, add a new object at the top of this array.
 export const certifications: Certification[] = [
-  {
-    issuer: "BWS",
-    title: "Internship in Full Stack Development",
-  },
-];
-
-// ─── About stats ─────────────────────────────────────────────────────────────
-export const aboutStats = [
-  { label: "Years Learning", value: "3+" },
-  { label: "Internships", value: "1" },
-  { label: "Projects Built", value: "3+" },
-  { label: "Certifications", value: "1" },
+  { issuer: "BWS", title: "Internship in Full Stack Development" },
 ];

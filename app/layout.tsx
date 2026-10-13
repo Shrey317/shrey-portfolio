@@ -1,90 +1,49 @@
 import type { Metadata, Viewport } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
+import localFont from "next/font/local";
 import "./globals.css";
-import { Providers } from "./providers";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { siteConfig } from "@/lib/data";
-
+const GeistSans = localFont({
+  src: "../node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+  display: "swap",
+  preload: true,
+});
+const GeistMono = localFont({
+  src: "../node_modules/geist/dist/fonts/geist-mono/GeistMono-Regular.woff2",
+  variable: "--font-geist-mono",
+  weight: "400",
+  display: "swap",
+  preload: true,
+});
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: {
-    default: siteConfig.title,
-    template: `%s | ${siteConfig.name}`,
-  },
+  title: { default: siteConfig.title, template: `%s | ${siteConfig.name}` },
   description: siteConfig.description,
-  keywords: [
-    "Shrey Patel",
-    "Full-Stack Developer",
-    "React Developer",
-    "Node.js",
-    "Web Developer",
-    "Portfolio",
-    "Computer Engineer",
-    "Johannesburg",
-    "South Africa",
-  ],
-  authors: [{ name: siteConfig.name, url: siteConfig.url }],
-  creator: siteConfig.name,
-  // Canonical URL so search engines know the primary URL for each page
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
-    title: siteConfig.title,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: `${siteConfig.name} — Full-Stack Web Developer`,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.title,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  authors: [{ name: siteConfig.name }],
+  robots: { index: true, follow: true },
 };
-
 export const viewport: Viewport = {
-  themeColor: "#080808",
+  themeColor: "#090a0e",
   width: "device-width",
   initialScale: 1,
 };
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${GeistSans.variable} ${GeistMono.variable}`}
-    >
-      <body className="antialiased min-h-screen flex flex-col">
-        <Providers>
-          <Navbar />
-          <div className="flex-1">{children}</div>
-          <Footer />
-        </Providers>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body>
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   );

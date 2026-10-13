@@ -1,15 +1,13 @@
-import type { Metadata } from "next";
-import { siteConfig } from "@/lib/data";
+import { pageMetadata } from "@/lib/metadata";
 import AboutContent from "@/components/sections/AboutContent";
-
-export const metadata: Metadata = {
-  title: "About",
-  description: `Learn more about ${siteConfig.name} — Software Engineer and Full-Stack Web Developer based in Johannesburg, Gauteng.`,
-};
-
+export const metadata = pageMetadata(
+  "About",
+  "Meet Shrey Patel, a software development graduate in Johannesburg focused on thoughtful interfaces and practical business systems.",
+  "/about",
+);
 export default function AboutPage() {
   return (
-    <main className="min-h-screen pt-24">
+    <main id="main-content" tabIndex={-1} className="page-main">
       <AboutContent />
     </main>
   );

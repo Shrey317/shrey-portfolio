@@ -1,104 +1,73 @@
 "use client";
-
-import { useState, useMemo } from "react";
-import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
-import { Layers } from "lucide-react";
+import { useState } from "react";
 import { projects } from "@/lib/data";
 import ProjectCard from "@/components/shared/ProjectCard";
-import TechTag from "@/components/shared/TechTag";
-import SectionHeader from "@/components/shared/SectionHeader";
-import AnimatedSection from "@/components/shared/AnimatedSection";
-
-// Collect every unique tech tag across all projects
-function getAllTechTags(): string[] {
-  const tagSet = new Set<string>();
-  projects.forEach((p) => p.tech.forEach((t) => tagSet.add(t)));
-  return ["All", ...Array.from(tagSet).sort()];
-}
-
+const categories = [
+  "All",
+  ...new Set(projects.map((project) => project.category)),
+];
 export default function ProjectsContent() {
-  const prefersReducedMotion = useReducedMotion();
-  const allTags = useMemo(() => getAllTechTags(), []);
-  const [activeTag, setActiveTag] = useState("All");
-
-  const filtered = useMemo(
-    () =>
-      activeTag === "All"
-        ? projects
-        : projects.filter((p) => p.tech.includes(activeTag)),
-    [activeTag]
+  const [category, setCategory] = useState("All");
+  const filtered = projects.filter(
+    (project) => category === "All" || project.category === category,
   );
-
   return (
-    <div className="max-w-6xl mx-auto px-6 pb-28">
-      <AnimatedSection>
-        <SectionHeader
-          label="All"
-          accent="Projects"
-          description="Every project I've built — filter by technology below."
-        />
-      </AnimatedSection>
-
-      {/* ── Filter bar ───────────────────────────────────────────────── */}
-      <AnimatedSection delay={0.1} className="mb-10">
+    <>
+      <div className="page-heading">
+        <p className="eyebrow">THE WORK / PROJECTS</p>
+        <h1>
+          Ideas. Built out<span className="accent">.</span>
+        </h1>
+        <p>
+          From shopping experiences to connected services and structured data.
+          Explore what I built and how the pieces fit together.
+        </p>
+      </div>
+      <div className="filter-row">
         <div
-          className="flex flex-wrap gap-2 justify-center"
+          className="filters"
           role="group"
-          aria-label="Filter projects by technology"
+          aria-label="Filter projects by category"
         >
-          {allTags.map((tag) => (
-            <TechTag
-              key={tag}
-              size="md"
-              active={activeTag === tag}
-              onClick={() => setActiveTag(tag)}
+          {categories.map((item) => (
+            <button
+              type="button"
+              key={item}
+              onClick={() => setCategory(item)}
+              aria-pressed={category === item}
             >
-              {tag}
-            </TechTag>
+              {item}
+            </button>
           ))}
         </div>
-      </AnimatedSection>
-
-      {/* ── Project grid ─────────────────────────────────────────────── */}
-      <AnimatePresence mode="wait">
-        {filtered.length > 0 ? (
-          <motion.div
-            key={activeTag}
-            initial={prefersReducedMotion ? {} : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={prefersReducedMotion ? {} : { opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6"
+        <p className="mono muted" role="status">
+          {filtered.length} {filtered.length === 1 ? "project" : "projects"}
+        </p>
+      </div>
+      <div className="projects-grid">
+        {filtered.map((project) => (
+          <ProjectCard
+            key={project.id}
+            project={project}
+            index={projects.indexOf(project)}
+          />
+        ))}
+      </div>
+      {filtered.length === 0 && (
+        <div className="empty-state">
+          <h2>No projects in this category.</h2>
+          <button
+            className="button button-secondary"
+            onClick={() => setCategory("All")}
           >
-            {filtered.map((project, i) => (
-              <ProjectCard key={project.id} project={project} index={i} />
-            ))}
-          </motion.div>
-        ) : (
-          // Empty state
-          <motion.div
-            key="empty"
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={prefersReducedMotion ? {} : { opacity: 0 }}
-            className="flex flex-col items-center justify-center py-24 text-center"
-          >
-            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/8 flex items-center justify-center mb-4">
-              <Layers size={24} className="text-[#555]" />
-            </div>
-            <p className="text-[#888] font-medium">
-              No projects tagged with{" "}
-              <span className="text-violet-400">{activeTag}</span>
-            </p>
-            <button
-              onClick={() => setActiveTag("All")}
-              className="mt-4 text-sm text-violet-400 hover:underline"
-            >
-              Show all projects
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+            Show all projects
+          </button>
+        </div>
+      )}
+      <p className="project-note">
+        Illustrations represent each project&apos;s focus; they are not
+        application screenshots. Build notes expand inside each card.
+      </p>
+    </>
   );
 }
