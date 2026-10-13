@@ -1,14 +1,14 @@
 export interface Project {
   id: string;
   name: string;
-  category: "Full-Stack" | "Backend";
+  category: "Full-Stack" | "Backend" | "Business Systems";
   type: string;
   description: string;
   contribution: string;
   features: string[];
   tech: string[];
   featured: boolean;
-  visual: "commerce" | "api" | "database";
+  visual: "commerce" | "api" | "database" | "fleet";
   liveUrl?: string;
   repoUrl?: string;
 }

@@ -6,6 +6,8 @@ import {
   Smartphone,
   Server,
   Braces,
+  Truck,
+  Table2,
 } from "lucide-react";
 import type { Project } from "@/lib/types";
 import TechTag from "./TechTag";
@@ -22,7 +24,13 @@ export default function ProjectCard({
         <span className="art-caption mono">
           {String(index + 1).padStart(2, "0")} / {project.type}
         </span>
-        {project.visual === "commerce" ? (
+        {project.visual === "fleet" ? (
+          <div className="api-art">
+            <span><Truck size={35} strokeWidth={1.2} /></span><i />
+            <span className="api-center"><Table2 size={34} strokeWidth={1.2} /></span><i />
+            <span><Database size={32} strokeWidth={1.2} /></span>
+          </div>
+        ) : project.visual === "commerce" ? (
           <div className="commerce-art">
             <div className="commerce-window">
               <div className="art-window-bar">
@@ -101,9 +109,10 @@ export default function ProjectCard({
                 <li key={feature}>{feature}</li>
               ))}
             </ul>
-            <p className="project-access">
-              Public demo and source code are not currently available.
-            </p>
+            {!project.liveUrl && !project.repoUrl && (
+              <p className="project-access">Public demo and source code are not currently available.</p>
+            )}
+            {project.visual === "fleet" && <p className="project-access">The live application requires an authorised account. Source code is available on GitHub.</p>}
           </div>
         </details>
         {(project.liveUrl || project.repoUrl) && (

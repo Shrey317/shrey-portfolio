@@ -99,7 +99,12 @@ try {
   await page.keyboard.press("Enter");
   assert.equal(await page.locator("details[open]").count(), 1);
   await page.getByRole("button", { name: "All", exact: true }).click();
-  assert.equal(await page.locator(".project-card").count(), 3);
+  assert.equal(await page.locator(".project-card").count(), 4);
+  await page.getByRole("button", { name: "Business Systems", exact: true }).click();
+  assert.equal(await page.locator(".project-card").count(), 1);
+  assert.match(await page.locator(".project-card h3").innerText(), /Nita Travels/);
+  assert.equal(await page.getByRole("link", { name: "Live demo" }).getAttribute("href"), "https://nita-travels.vercel.app/");
+  assert.equal(await page.getByRole("link", { name: "Source code" }).getAttribute("href"), "https://github.com/Shrey317/Nita-Travels");
   results.push(
     "Project filtering and build notes work with mouse and keyboard",
   );

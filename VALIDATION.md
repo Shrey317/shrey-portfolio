@@ -1,3 +1,7 @@
+# Update — 14 October 2026
+
+Nita Travels and the owner-supplied CV are now integrated. Production build, ESLint, TypeScript and the full browser suite passed again, including the Business Systems filter, Nita Travels links, the actual PDF endpoint and browser download filename. Source and installed PDF SHA-256 hashes match. Twelve accessibility scans and all nine responsive widths passed. No unexpected console or hydration errors. The prior CV fallback limitation below is resolved. Lighthouse scores below are historical; performance was not remeasured for this content update.
+
 # Verification record
 
 Executed 13 October 2026 against the local Next.js production server. The public Vercel deployment was not changed.
@@ -41,3 +45,4 @@ See `CONTENT-NOTES.md`. The correct CV, exact Bachelor's qualification title, ap
 
 
 Desktop Lighthouse: Performance 95, Accessibility 100, Best Practices 100, SEO 100. LCP 0.9 s; TBT 130 ms; CLS 0. Report: artifacts/lighthouse-desktop-final.json.
+

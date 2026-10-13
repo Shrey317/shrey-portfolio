@@ -49,18 +49,11 @@ Checks cover all six page states at 320, 375, 390, 430, 768, 1024, 1280, 1440 an
 
 Project illustrations are abstract CSS diagrams, explicitly labelled as concepts. There are no invented application screenshots, public demos, repository links or case-study claims. Native disclosure controls expose each project's documented functionality and contribution.
 
-## CV handoff — action required
+## CV download
 
-The original `public/resume.pdf` contains **Atri Patel's** résumé. It was moved unchanged to the ignored `private/original-resume-needs-replacement.pdf`, and is excluded from deployment. The original file's metadata date does not establish when Shrey's CV was updated.
+The owner-supplied CV dated 14 October 2026 is served unchanged at `public/resume.pdf`. Downloads are enabled throughout the site with filename `Shrey_Patel_CV.pdf`; `/resume` includes an embedded preview and a direct-download fallback. The deployed file's SHA-256 matches the supplied source.
 
-Until the correct document is supplied, CTAs say **Request CV** and `/resume` offers an email request. To enable downloads:
-
-1. Verify Shrey's correct PDF, including name, qualification titles, dates and absence of a portrait.
-2. Place it at `public/resume.pdf`.
-3. Set `resume.available` to `true` in `lib/data.ts`. Set `resume.updated` only if its revision date is verified; otherwise leave it `null`.
-4. Run the browser suite. It automatically tests the real PDF endpoint and download filename when downloads are enabled.
-
-The existing PDF has not been rewritten. Do not deploy the unrelated original.
+For future updates, replace that PDF and update `resume.updated` in `lib/data.ts` using a verified document revision date. The browser suite tests the real PDF endpoint and download filename. The earlier unrelated PDF remains privately archived and is excluded from deployment.
 
 ## Deploy to Vercel
 
@@ -68,7 +61,7 @@ Use the existing project, Next.js framework preset, `npm ci`, and `npm run build
 
 The canonical origin is `https://shrey-portfolio-black.vercel.app`, the user-specified live origin verified to return HTTP 200. If a permanent custom domain replaces it, update `siteConfig.url`; sitemap, robots and metadata derive from it. This task has not published a deployment.
 
-Before a public release, supply the correct CV and review the content gaps in [CONTENT-NOTES.md](CONTENT-NOTES.md). See [VALIDATION.md](VALIDATION.md) for executed checks and known limits.
+Before a public release, review the remaining content gaps in [CONTENT-NOTES.md](CONTENT-NOTES.md). See [VALIDATION.md](VALIDATION.md) for executed checks and known limits.
 
 ## Implementation notes
 

@@ -19,21 +19,21 @@ export const siteConfig = {
   location: "Johannesburg, South Africa",
   links: {
     github: "https://github.com/Shrey317",
-    linkedin: "https://www.linkedin.com/in/shrey-patel-36a5b8343/",
+    linkedin: "https://www.linkedin.com/in/shrey-patel-a8a654200/",
     email: "drash1731@gmail.com",
   },
 };
-// Enable only after replacing the unrelated supplied PDF with Shrey's verified CV.
+// Verified against the owner-supplied CV on 14 October 2026.
 export const resume: {
   available: boolean;
   path: string;
   filename: string;
   updated: string | null;
 } = {
-  available: false,
+  available: true,
   path: "/resume.pdf",
   filename: "Shrey_Patel_CV.pdf",
-  updated: null,
+  updated: "14 October 2026",
 };
 export const hero = {
   headline: "Shrey Patel",
@@ -53,6 +53,28 @@ export const navLinks: NavLink[] = [
 // Existing project summaries; provenance, delivery dates and deployment status
 // are undocumented. Do not imply public availability or client production use.
 export const projects: Project[] = [
+  {
+    id: "nita-travels",
+    name: "Nita Travels Fleet Management",
+    category: "Business Systems",
+    type: "Full-stack web application",
+    description:
+      "A fleet management application that replaces a spreadsheet workflow with connected vehicle, financial and maintenance records.",
+    contribution:
+      "Designed and developed the application, modelled its PostgreSQL database with Prisma, and migrated historical spreadsheet data using Python. Implemented authentication and validation, wrote Vitest and Playwright tests, and deployed to Vercel with a CI/CD workflow.",
+    features: [
+      "Vehicle, mileage, service and insurance records",
+      "Transactions, expenses and repair tracking",
+      "Interactive analytics and filterable reporting",
+      "CSV export and authenticated access",
+    ],
+    tech: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "NextAuth.js", "Vitest", "Playwright"],
+    featured: true,
+    visual: "fleet",
+    liveUrl: "https://nita-travels.vercel.app/",
+    repoUrl: "https://github.com/Shrey317/Nita-Travels",
+  },
+
   {
     id: "e-com-web",
     name: "E-Commerce Web Application",
@@ -110,6 +132,8 @@ export const skills: SkillCategory[] = [
       { name: "CSS", icon: "css" },
       { name: "JavaScript", icon: "js" },
       { name: "React", icon: "react" },
+      { name: "Next.js", icon: "code" },
+      { name: "TypeScript", icon: "code" },
       { name: "Tailwind CSS", icon: "tailwind" },
     ],
   },
@@ -128,6 +152,8 @@ export const skills: SkillCategory[] = [
     description: "Structured information. Reliable foundations.",
     skills: [
       { name: "SQL / MySQL", icon: "mysql" },
+      { name: "PostgreSQL", icon: "database" },
+      { name: "Prisma", icon: "database" },
       { name: "MongoDB", icon: "mongo" },
       { name: "Excel", icon: "excel" },
     ],
@@ -160,11 +186,11 @@ export const experience: Experience[] = [
     endDate: "Present",
     location: "Rosebank, Gauteng",
     responsibilities: [
-      "Developed an Excel-based fleet management system for Nita Travels.",
+      "Developed an Excel-based fleet management system, then rebuilt it as the Nita Travels full-stack web application.",
       "Developed an Excel-based student accommodation system for Limuor House.",
       "Maintain accurate business records and support structured data updates and administrative workflows.",
     ],
-    tech: ["Excel", "Microsoft Office", "Data Management"],
+    tech: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Excel"],
   },
   {
     company: "BWS",
@@ -183,12 +209,12 @@ export const education: Education[] = [
   {
     institution: "Eduvos",
     degree: "BSc Honours in Information Technology (Software Engineering)",
-    dateLabel: "Completed November 2025",
+    dateLabel: "Completed 2025",
   },
   {
     institution: "Eduvos",
-    degree: "Bachelor’s degree",
-    dateLabel: "Completed 2025",
+    degree: "BSc in Information Technology (Software Engineering)",
+    dateLabel: "Completed 2024",
   },
   {
     institution: "Parktown Boys’ High School",

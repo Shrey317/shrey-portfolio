@@ -1,5 +1,20 @@
 # Content and source audit
 
+## Update — 14 October 2026
+
+The owner supplied `C:\Users\drash\Documents\cv work\Shrey_Patel_CV.pdf` and requested that Nita Travels be added. The document identifies Shrey Patel, contains no embedded photographs, and has a modification date of 14 October 2026. It is now served unchanged as `public/resume.pdf`, with download and preview enabled.
+
+- Nita Travels is now the first featured project: a deployed Next.js/TypeScript fleet management application using PostgreSQL, Prisma, Tailwind, NextAuth, Vitest and Playwright. Contributions and functionality are taken from the owner's CV. No private operational screenshots or records were accessed.
+- Both PDF-embedded links were verified: the Vercel URL resolves to the login page (HTTP 200) and the public GitHub repository resolves with HTTP 200. The card explicitly states that an authorised account is required for the live application.
+- The CV's LinkedIn URL replaces the older configured profile.
+- The CV lists the Bachelor's qualification as Information Technology (Software Engineering), completed in 2024, and Honours completed in 2025. This newer documentary source supersedes the earlier chat statement of 2025 for both. The unsupported November completion month was removed.
+- Work experience now acknowledges the fleet system's transition from Excel to the web application. Relevant verified technologies were added to the skills list.
+- Remaining evidence gaps: approved application screenshots; public demos/repositories for the older projects; independent verification of LinkedIn; detailed case-study source material. No new private project data is exposed.
+
+The following is the historical audit from 13 October; its CV and Nita Travels blockers are resolved by the update above.
+
+# Content and source audit
+
 Reviewed 13 October 2026. Source of professional claims: original `lib/data.ts` and About copy, the owner's implementation brief, and the owner's subsequent education clarification. No unrelated local projects, private operational records or account data were accessed.
 
 ## Confirmed and preserved
